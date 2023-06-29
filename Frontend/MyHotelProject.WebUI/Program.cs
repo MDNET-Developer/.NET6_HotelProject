@@ -1,8 +1,18 @@
+using Microsoft.EntityFrameworkCore;
+using MyHotelProject.DataAccessLayer.Concrete;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//builder.Services.AddDbContext<MyContext>(options =>
+//{
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("LocalDb"), opt =>
+//    {
+//        opt.MigrationsAssembly("MyHotelProject.DataAccessLayer");
+//    });
+//});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
