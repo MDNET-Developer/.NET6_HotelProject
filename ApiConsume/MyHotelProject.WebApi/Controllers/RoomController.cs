@@ -1,39 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MyHotelProject.BusinessLayer.Abstract;
+using MyHotelProject.EntityLayer.Concrete;
 
 namespace MyHotelProject.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RoomController : ControllerBase
+    public class RoomController : GenericController<Room>
     {
-        [HttpGet]
-        public IActionResult RoomList()
+        public RoomController(IGenericService<Room> genericService) : base(genericService)
         {
-            return Ok();
-        }
-        [HttpGet("{id}")]
-        public IActionResult GetRoomById()
-        {
-            return Ok();
-        }
-
-        [HttpPost]
-        public IActionResult AddRoom()
-        {
-            return Ok();
-        }
-
-        [HttpDelete]
-        public IActionResult DeleteRoom()
-        {
-            return Ok();
-        }
-
-        [HttpPut]
-        public IActionResult UpdateRoom()
-        {
-            return Ok();
         }
     }
 }
