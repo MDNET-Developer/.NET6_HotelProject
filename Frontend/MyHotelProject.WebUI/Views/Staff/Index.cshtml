@@ -1,8 +1,50 @@
-﻿
+﻿@model List<StaffViewModel>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>İşçilər</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>İşçilər</h2><span><button type="button" class="btn btn-outline-success">Yeni işçi + </button></span>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tam adı</th>
+                    <th>Başlıq</th>
+                    <th>Yenilə</th>
+                    <th>Sil</th>
+                    <th>Detallar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.StaffID</td>
+                        <td>@item.FullName</td>
+                        <td>@item.Title</td>
+                        <td><button class="btn btn-outline-warning">Yenilə</button></td>
+                        <td>
+                            <button class="btn btn-outline-danger">Sil</button>
+                        </td>
 
+                        <td>
+                            <button class="btn btn-outline-secondary">Detallar</button>
+                        </td>
+                    </tr>
+                }
+            
+            </tbody>
+        </table>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
