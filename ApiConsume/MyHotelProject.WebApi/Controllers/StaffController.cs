@@ -36,10 +36,10 @@ namespace MyHotelProject.WebApi.Controllers
             return Ok();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStaff(int id)
         {
-          var data = await  _staffService.TGetByIdAsync(id);
+            var data = await _staffService.TGetByIdAsync(id);
             await _staffService.TDeleteAsync(data);
             return Ok();
         }

@@ -1,0 +1,65 @@
+﻿@model List<TestimonialViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>İşçilər</title>
+    @*  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">*@
+</head>
+<body>
+    <div class="container">
+        <h2>Referanslar</h2><span><a asp-controller="Staff" asp-action="AddStaff" class="btn mb-1 btn-rounded btn-outline-success">Yeni işçi + </a></span>
+        <br />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ad</th>
+                    <th>Başlıq</th>
+                    <th>Açıqlama</th>
+                    <th>Şəkil</th>
+                    <th>Yenilə</th>
+                    <th>Sil</th>
+                    <th>Detallar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.TestimonialID</td>
+                        <td>@item.Name</td>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td>@if (item.Image.Equals(null))
+                            {
+                                <img src="~/AdminPanel/images/DefaultPerson.png" />
+                            }
+                            else
+                            {
+                                <img src="@item.Image" />
+                            }
+                        </td>
+                        <td><a href="/Staff/UpdateTestimonial/@item.TestimonialID" class="btn mb-1 btn-rounded btn-outline-warning">Yenilə</a></td>
+                        <td>
+                            <a onclick="return confirm('Silmək istəyirsiz ?')" href="/Staff/DeleteTestimonial/@item.TestimonialID" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a>
+                        </td>
+
+                        <td>
+                            <a class="btn mb-1 btn-rounded btn-outline-secondary">Detallar</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    @*   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>*@
+</body>
+</html>
+
+

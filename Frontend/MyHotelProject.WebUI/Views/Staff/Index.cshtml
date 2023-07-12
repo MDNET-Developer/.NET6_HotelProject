@@ -8,11 +8,12 @@
 <html>
 <head>
     <title>İşçilər</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  @*  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">*@
 </head>
 <body>
     <div class="container">
-        <h2>İşçilər</h2><span><button type="button" class="btn btn-outline-success">Yeni işçi + </button></span>
+        <h2>İşçilər</h2><span><a asp-controller="Staff" asp-action="AddStaff" class="btn mb-1 btn-rounded btn-outline-success">Yeni işçi + </a></span>
+        <br />
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -31,13 +32,13 @@
                         <td>@item.StaffID</td>
                         <td>@item.FullName</td>
                         <td>@item.Title</td>
-                        <td><button class="btn btn-outline-warning">Yenilə</button></td>
+                        <td><a href ="/Staff/UpdateStaff/@item.StaffID" class="btn mb-1 btn-rounded btn-outline-warning">Yenilə</a></td>
                         <td>
-                            <button class="btn btn-outline-danger">Sil</button>
+                            <a onclick="return confirm('Silmək istəyirsiz ?')" href="/Staff/DeleteStaff/@item.StaffID" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a>
                         </td>
 
                         <td>
-                            <button class="btn btn-outline-secondary">Detallar</button>
+                            <a class="btn mb-1 btn-rounded btn-outline-secondary">Detallar</a>
                         </td>
                     </tr>
                 }
@@ -45,6 +46,6 @@
             </tbody>
         </table>
     </div>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ @*   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>*@
 </body>
 </html>

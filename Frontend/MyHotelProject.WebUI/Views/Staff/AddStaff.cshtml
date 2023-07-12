@@ -1,0 +1,50 @@
+﻿@model AddStaffViewModel
+@{
+    ViewData["Title"] = "AddStaff";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>İşçi əlavə et</h1>
+<style>
+    .rounded-input {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+        .rounded-input:hover {
+            border-color: goldenrod;
+        }
+
+        .rounded-input:focus {
+            border-color: #7571f9;
+            box-shadow: 0 0 5px #fff, 0 0 20px #7571f9;
+        }
+</style>
+<form method="post">
+    <div>
+        <h5 for="fullName">Tam adı:</h5>
+        <input type="text" asp-for="FullName" class="rounded-input" />
+    </div>
+    <div>
+        <h5 for="title">Başlıq:</h5>
+        <input type="text" asp-for="Title" class="rounded-input" />
+    </div>
+    <div>
+        <h5 for="socialMedia1">Social Media 1:</h5>
+        <input type="text" asp-for="SocialMedia1" class="rounded-input" />
+    </div>
+    <div>
+        <h5 for="socialMedia2">Social Media 2:</h5>
+        <input type="text" asp-for="SocialMedia2" class="rounded-input" />
+    </div>
+    <div>
+        <h5 for="socialMedia3">Social Media 3:</h5>
+        <input type="text" asp-for="SocialMedia3" class="rounded-input" />
+    </div>
+    <br />
+    <div>
+        <button class="btn mb-1 btn-rounded btn-outline-success" type="submit">Yadda saxla</button>
+    </div>
+</form>
+

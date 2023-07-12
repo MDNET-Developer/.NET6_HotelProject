@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+//Bunu tanitmaq lazimdir ki,api uzre gelen istekler islesin
 builder.Services.AddHttpClient();
 //builder.Services.AddDbContext<MyContext>(options =>
 //{
