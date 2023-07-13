@@ -31,7 +31,6 @@
             <p>For any questions, please email us at <a href="mailto:murad.aliyev.net@mail.ru">murad.aliyev.net@mail.ru</a>.</p>
         </section>
     </main>
-    
     <footer>
         <p>&copy; 2023 My Hotel Project. All rights reserved.</p>
     </footer>
