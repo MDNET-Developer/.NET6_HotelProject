@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Awesome Project</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
