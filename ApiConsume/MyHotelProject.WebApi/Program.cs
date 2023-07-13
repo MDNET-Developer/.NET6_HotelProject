@@ -1,3 +1,4 @@
+using AutoMapper;
 using MyHotelProject.BusinessLayer.Abstract;
 using MyHotelProject.BusinessLayer.Concrete;
 using MyHotelProject.DataAccessLayer.Abstract;
@@ -6,6 +7,7 @@ using MyHotelProject.DataAccessLayer.EntityFramework;
 using MyHotelProject.DataAccessLayer.Repositories;
 using MyHotelProject.EntityLayer.Concrete;
 using MyHotelProject.WebApi.Extension;
+using MyHotelProject.WebApi.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +20,10 @@ builder.Services.CustomService();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(opt =>
+{
+    opt.AddProfile(new MappingConfugiration());
+});
 builder.Services.AddCors(opt =>
 {
     opt.AddPolicy("MDPolicy", options =>
