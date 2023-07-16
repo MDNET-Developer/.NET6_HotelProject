@@ -16,7 +16,7 @@
     <main>
         <section>
             <h2>About</h2>
-            <p>This project was made by Murad Aliyev using c#. C#,asp.net core, automapper were used this technology this project</p>
+            <p>This project was made by Murad Aliyev using c#. C#,asp.net core, automapper, asp.net identity were used this technology this project</p>
         </section>
         <section>
             <h2>Features</h2>
