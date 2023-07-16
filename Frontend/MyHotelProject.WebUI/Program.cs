@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MyHotelProject.DataAccessLayer.Concrete;
+using MyHotelProject.EntityLayer.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,13 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 //Bunu tanitmaq lazimdir ki,api uzre gelen istekler islesin
 builder.Services.AddHttpClient();
-//builder.Services.AddDbContext<MyContext>(options =>
-//{
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("LocalDb"), opt =>
-//    {
-//        opt.MigrationsAssembly("MyHotelProject.DataAccessLayer");
-//    });
-//});
+builder.Services.AddDbContext<MyContext>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<MyContext>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
