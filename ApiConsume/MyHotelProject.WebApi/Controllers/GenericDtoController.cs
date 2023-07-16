@@ -33,13 +33,19 @@ namespace MyHotelProject.WebApi.Controllers
         public async Task<IActionResult> GetDataById(int id)
         {
             var data = await _genericService.TGetByIdAsync(id);
-            return Ok(data);
+            var mappingData = _mapper.Map<ListDto>(data);
+            return Ok(mappingData);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddStaff(T t)
+        public async Task<IActionResult> AddStaff(AddDto dto)
         {
-            await _genericService.TInsertAsync(t);
+            if(!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            var mappingData = _mapper.Map<T>(dto);
+            await _genericService.TInsertAsync(mappingData);
             return Ok();
         }
 
@@ -52,9 +58,10 @@ namespace MyHotelProject.WebApi.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateData(T t)
+        public async Task<IActionResult> UpdateData(UpdateDto dto)
         {
-            await _genericService.TUpdateAsync(t);
+            var mappingData = _mapper.Map<T>(dto);
+            await _genericService.TUpdateAsync(mappingData);
             return Ok();
         }
     }
