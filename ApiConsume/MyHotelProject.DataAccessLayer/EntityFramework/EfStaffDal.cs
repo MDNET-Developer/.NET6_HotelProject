@@ -1,4 +1,5 @@
-﻿using MyHotelProject.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using MyHotelProject.DataAccessLayer.Abstract;
 using MyHotelProject.DataAccessLayer.Concrete;
 using MyHotelProject.DataAccessLayer.Repositories;
 using MyHotelProject.EntityLayer.Concrete;
@@ -14,6 +15,12 @@ namespace MyHotelProject.DataAccessLayer.EntityFramework
     {
         public EfStaffDal(MyContext? context) : base(context)
         {
+        }
+
+        //public async Task<int> GetStaffCount() => await _context.Set<Staff>().CountAsync();
+        public async Task<int> GetStaffCount()
+        {
+            return await _dbSet.CountAsync();
         }
     }
 }

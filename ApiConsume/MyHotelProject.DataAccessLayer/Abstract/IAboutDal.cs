@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyHotelProject.DataAccessLayer.Abstract
 {
-    public interface IStaffDal:IGenericDal<Staff>
+    public interface IAboutDal: IGenericDal<About>
     {
-        Task<int> GetStaffCount();
     }
 }

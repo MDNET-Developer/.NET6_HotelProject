@@ -1,26 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyHotelProject.WebUI.Models;
-using MyHotelProject.WebUI.Models.About;
 using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace MyHotelProject.WebUI.ViewComponents.Default
 {
-    public class _AboutPartial:ViewComponent
+    public class _AboutStaffCountPartial:ViewComponent
     {
         private readonly IHttpClientFactory _httpClientFactory;
-
-        public _AboutPartial(IHttpClientFactory httpClientFactory)
+        public _AboutStaffCountPartial(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
-
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var responseMessage = await _httpClientFactory.CreateClient().GetAsync("http://localhost:5188/api/About");
+            var responseMessage = await _httpClientFactory.CreateClient().GetAsync("http://localhost:5188/api/Staff/dataCount");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<AboutViewModel>>(jsonData);
+                var values = JsonConvert.DeserializeObject<GetStaffCountViewModel>(jsonData);
                 return View(values);
             }
             return View();

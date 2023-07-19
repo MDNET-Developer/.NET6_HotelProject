@@ -31,7 +31,10 @@ namespace MyHotelProject.WebApi.Extension
             services.AddScoped<ITestimonialService, TestimonialManager>();
             services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 
-           
+            services.AddScoped<IAboutService, AboutManager>();
+            services.AddScoped<IAboutDal, EfAboutDal>();
+
+
         }
     }
 }

@@ -16,6 +16,13 @@ namespace MyHotelProject.WebApi.Controllers
             _staffService = staffService;
         }
 
+        [HttpGet("dataCount")]
+        public async Task<IActionResult> GetStaffCount()
+        {
+            var dataCount = await _staffService.GetStaffCountAsync();
+            return Ok(dataCount);
+        }
+
         [HttpGet]
         public async Task<IActionResult> StaffList()
         {
