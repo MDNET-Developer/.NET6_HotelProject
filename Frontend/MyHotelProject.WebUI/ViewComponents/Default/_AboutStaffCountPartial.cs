@@ -18,7 +18,8 @@ namespace MyHotelProject.WebUI.ViewComponents.Default
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<GetStaffCountViewModel>(jsonData);
+                var values = JsonConvert.DeserializeObject<int>(jsonData);
+                ViewBag.value=values;
                 return View(values);
             }
             return View();
