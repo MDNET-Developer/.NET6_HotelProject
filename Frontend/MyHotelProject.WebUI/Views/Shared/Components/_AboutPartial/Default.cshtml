@@ -1,5 +1,5 @@
 ﻿@model List<AboutViewModel>
-@foreach(var item in Model)
+@foreach(var item in (Model.Count()>3? Model.Skip(Model.Count-3):Model))
 {
  <div class="container-xxl py-5">
     <div class="container">

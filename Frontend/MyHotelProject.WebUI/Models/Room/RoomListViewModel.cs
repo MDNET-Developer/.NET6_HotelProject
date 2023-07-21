@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyHotelProject.EntityLayer.Concrete
+﻿namespace MyHotelProject.WebUI.Models
 {
-    public class Room
+    public class RoomListViewModel
     {
-        public int RoomId { get; set; }
         public string? RoomNumber { get; set; }
         public string? RoomCoverImage { get; set; }
         public int Star { get; set; }
