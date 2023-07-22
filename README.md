@@ -24,7 +24,8 @@
                 <li>CRUD Api subsystem</li>
                 <li>Frontend Api Consume</li>
                 <li>N Tier Architectura</li>
-                <li>ASP.NET Identity User System</li>
+                <li>ASP.NET Identity User System</li> 
+                <li>Rapin Api</li>
             </ul>
         </section>
         <section>
