@@ -1,0 +1,71 @@
+﻿@model List<BookingAdminViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sifarişlər</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Sifarişlər</h2><span><a asp-controller="Staff" asp-action="AddStaff" class="btn mb-1 btn-rounded btn-outline-success">Yeni sifariş + </a></span>
+        <br />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tam adı</th>
+                    <th>Başlanğıc tarix</th>
+                    <th>Bitiş tarixi</th>
+                    <th>Otaq sayı</th>
+                    <th>Yetkin sayı</th>
+                    <th>Uşaq sayı sayı</th>
+                    <th>Status</th>
+                    <th>Detallar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.BookingId</td>
+                        <td>@item.Name</td>
+                        <td>@item.CheckIn.ToString("dd-MM-yyy")</td>
+                        <td>@item.CheckOut.ToString("dd-MM-yyy")</td>
+                        <td>@item.RoomCount</td>
+                        <td>@item.AdultCount</td>
+                        <td>@item.ChildCount</td>
+                        <td>
+                            @if (item.Status.Equals("Gözləyir"))
+                            {
+                                <span style="font-size:12px" class="badge badge-warning">Gözləyir</span>
+                            }
+                            else if (item.Status.Equals("Təsdiqləndi"))
+                            {
+                                <span style="font-size:12px" class="badge badge-success">Təsdiqləndi</span>
+                            }
+                            else
+                            {
+                                <span style ="font-size:12px" class="badge badge-danger">Donduruldu</span>
+                            }
+                        </td>
+                        @*<td><a href="/Booking/AcceptedBooking/@item.BookingId" class="btn mb-1 btn-rounded btn-outline-success">Təsdiqlə</a></td>
+                        <td>
+                            <a onclick="return confirm('Ləğv etmək istəyirsiz ?')" href="/Staff/DeleteStaff/@item.BookingId" class="btn mb-1 btn-rounded btn-outline-danger">Ləğv et</a>
+                        </td>*@
+                        <td>
+                            <a href="/BookingAdmin/DetailsBooking/@item.BookingId" class="btn mb-1 btn-rounded btn-outline-dark">Detallar</a>
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    @*   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>*@
+</body>
+</html>

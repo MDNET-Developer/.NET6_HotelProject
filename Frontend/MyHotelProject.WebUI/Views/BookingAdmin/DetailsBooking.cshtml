@@ -1,0 +1,99 @@
+﻿@model BookingAdminViewModel
+@{
+    ViewData["Title"] = "DetailsBooking";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<style>
+    span{
+        font-size:13px
+    }
+
+    nav{
+        font-size: 15px
+    }
+</style>
+<form method="post">
+    <input style="display:none" type="hidden" asp-for="BookingId" />
+<div class="container">
+    <h3 style="text-align:center"><input readonly="true" style="border:none;font-size:27px" asp-for="Name" /></h3>
+    <nav style="text-align:center">
+
+
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th scope="col">Mail: <input style="border:none;width:3.5cm" readonly="true" asp-for="Mail" /></th>
+                        <th scope="col">Otaq sayı: <input style="border:none;width:2cm" readonly="true" asp-for="RoomCount" /></th>
+                        <th scope="col">Yetkin sayı: <input style="border:none;width:2cm" readonly="true" asp-for="AdultCount" /></th>
+                        <th scope="col">Uşaq sayı sayı: <input style="border:none;width:2cm" readonly="true" asp-for="ChildCount" /></th>
+                        <th scope="col">
+                            Status:
+                            <select style="width:4.5cm;" class="form-control" asp-for="Status">
+                                <option value="@if (Model.Status.Equals("Gözləyir"))
+                                        {
+                                        <span style="border-radius:100%;background-color:goldenrod;width:1cm;height:auto"></span>  <span style="font-size:12px" class="badge badge-warning">Gözləyir</span>
+                                    }
+                                    else if (Model.Status.Equals("Təsdiqləndi"))
+                                    {
+                                       <span style="border-radius:100%;background-color:green;width:1cm;"></span> <span style="font-size:12px" class="badge badge-success">Təsdiqləndi</span>
+                                    }
+                                    else
+                                    {
+                                        <span style="border-radius:100%;background-color:gray;width:1cm;"></span>  <span style="font-size:12px" class="badge badge-danger">Donduruldu</span>
+                                    }">
+                                    @if (Model.Status.Equals("Gözləyir"))
+                                    {
+                                        <span style="font-size:12px" class="badge badge-warning">Gözləyir</span>
+                                    }
+                                    else if (Model.Status.Equals("Təsdiqləndi"))
+                                    {
+                                      <span style="font-size:12px" class="badge badge-success">Təsdiqləndi</span>
+                                    }
+                                    else
+                                    {
+                                       <span style="font-size:12px" class="badge badge-danger">Donduruldu</span>
+                                    }
+                                </option>
+                                @if (Model.Status.Equals("Təsdiqləndi"))
+                                {
+                                  
+                                }
+                                else
+                                {
+                                    <option value="Təsdiqləndi">Təsdiqləndi</option>
+                                }
+                               
+                                @if (Model.Status.Equals("Donduruldu"))
+                                {
+
+                                }
+                                else
+                                {
+                                    <option value="Donduruldu">Dondur</option>
+                                }
+                           
+                            </select>
+                        </th>
+                    </tr>
+                </thead>
+
+            </table>
+
+    </nav>
+    <br />
+    <div style="background-color:#e5cbba;padding:12px;border-radius:12px">
+        <p>
+                <input style="border:none;background-color:#e5cbba" readonly="true" asp-for="SpecialRequest" />
+        </p>
+    </div>
+    <br />
+      
+    <nav style="text-align:center">
+        <button onclick="return confirm('Təsdiq etmək istəyirsiz ?')" class="btn mb-1 btn-rounded btn-outline-success">Yadda saxla</button>
+        
+    </nav>
+</div>
+</form>
+
+

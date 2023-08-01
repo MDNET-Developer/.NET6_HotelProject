@@ -31,8 +31,25 @@ namespace MyHotelProject.WebUI.Controllers
         {
             var jsonData = JsonConvert.SerializeObject(viewModel);
             StringContent stringContent = new(jsonData, Encoding.UTF8, "application/json");
-           await _httpClientFactory.CreateClient().PostAsync("http://localhost:5188/api/Subcribe", stringContent);
+             await _httpClientFactory.CreateClient().PostAsync("http://localhost:5188/api/Subcribe", stringContent);
              return RedirectToAction("Index", "Default");
+        }
+
+
+        [HttpGet]
+        public PartialViewResult RezervationPartial()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RezervationPartial(BookingViewModel viewModel)
+        {
+            viewModel.Status = "Gözləyir";
+            var jsonData = JsonConvert.SerializeObject(viewModel);
+            StringContent stringContent = new(jsonData, Encoding.UTF8, "application/json");
+            await _httpClientFactory.CreateClient().PostAsync("http://localhost:5188/api/Booking", stringContent);
+            return RedirectToAction("Index", "Default");
         }
     }
 }

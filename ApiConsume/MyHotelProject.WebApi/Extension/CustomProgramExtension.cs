@@ -34,6 +34,9 @@ namespace MyHotelProject.WebApi.Extension
             services.AddScoped<IAboutService, AboutManager>();
             services.AddScoped<IAboutDal, EfAboutDal>();
 
+            services.AddScoped<IBookingService, BookingManager>();
+            services.AddScoped<IBookingDal, EfBookingDal>();
+
 
         }
     }

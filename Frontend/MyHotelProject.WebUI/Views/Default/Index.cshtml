@@ -29,6 +29,10 @@
         @await Component.InvokeAsync("_BookingPartial");
         <!-- Booking End -->
 
+        <!-- Rezervation Start -->
+        @await Html.PartialAsync("RezervationPartial.cshtml")
+        <!-- Rezervation End -->
+
 
         <!-- About Start -->
         @await Component.InvokeAsync("_AboutPartial");

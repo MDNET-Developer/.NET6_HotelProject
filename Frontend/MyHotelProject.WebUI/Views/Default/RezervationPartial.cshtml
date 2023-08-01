@@ -1,0 +1,99 @@
+﻿@model BookingViewModel
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h5 class="section-title text-center text-primary text-uppercase">Rezerv et</h5>
+            <h1 class="mb-5">MD<span class="text-primary text-uppercase">Hotel</span></h1>
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-6 text-end">
+                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="~/hotel-html-template/img/about-1.jpg" style="margin-top: 25%;">
+                    </div>
+                    <div class="col-6 text-start">
+                        <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="~/hotel-html-template/img/about-2.jpg">
+                    </div>
+                    <div class="col-6 text-end">
+                        <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="~/hotel-html-template/img/about-3.jpg">
+                    </div>
+                    <div class="col-6 text-start">
+                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="~/hotel-html-template/img/about-4.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+                    <form method="post" asp-controller="Default" asp-action="RezervationPartial">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="Name" type="text" class="form-control" placeholder="Tam adınız">
+                                    <label>Tam adınız</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" asp-for="Mail" placeholder="E-poçt">
+                                    <label for="email">E-poçt</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating date" id="date3" data-target-input="nearest">
+                                    <input type="date" class="form-control datetimepicker-input" id="checkin" placeholder="Check In" asp-for="CheckIn" data-target="#date3" data-toggle="datetimepicker" />
+                                    <label for="checkin">Giriş tarixi</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating date" id="date4" data-target-input="nearest">
+                                    <input type="date" class="form-control datetimepicker-input" asp-for="CheckOut" placeholder="Bitiş tarixi" data-target="#date4" data-toggle="datetimepicker" />
+                                    <label for="checkout">Bitiş tarixi</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select asp-for="AdultCount" class="form-select" id="select1">
+                                        <option value="1">Yetkin 1</option>
+                                        <option value="2">Yetkin 2</option>
+                                        <option value="3">Yetkin 3</option>
+                                    </select>
+                                    <label for="select1">Yetkin sayı</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select" asp-for="ChildCount" id="select2">
+                                        <option value="0">Yoxdur</option>
+                                        <option value="1">Uşaq 1</option>
+                                        <option value="2">Uşaq 2</option>
+                                        <option value="3">Uşaq 3</option>
+                                    </select>
+                                    <label for="select2">Uşaq sayı</label>
+                                </div> 
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <select class="form-select" asp-for="RoomCount" id="select3">
+                                        <option value="1">Otaq 1</option>
+                                        <option value="2">Otaq 2</option>
+                                        <option value="3">Otaq 3</option>
+                                    </select>
+                                    <label for="select3">Otaq seç</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating"> 
+                                    <textarea class="form-control" placeholder="Digər istəklər" asp-for="SpecialRequest" id="message" style="height: 100px"></textarea>
+                                    <label for="message">Digər istəklər</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Rezerv et</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

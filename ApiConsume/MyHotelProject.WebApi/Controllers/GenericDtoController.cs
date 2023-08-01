@@ -14,8 +14,8 @@ namespace MyHotelProject.WebApi.Controllers
     /// <typeparam name="AddDto"></typeparam>
     public class GenericDtoController<T,ListDto,UpdateDto,AddDto> : ControllerBase where T : class
     {
-        private readonly IGenericService<T> _genericService;
-        private readonly IMapper _mapper;
+        protected readonly IGenericService<T> _genericService;
+        protected readonly IMapper _mapper;
         public GenericDtoController(IGenericService<T> genericService, IMapper mapper)
         {
             _genericService = genericService;
