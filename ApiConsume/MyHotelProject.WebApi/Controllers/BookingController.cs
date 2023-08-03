@@ -18,7 +18,7 @@ namespace MyHotelProject.WebApi.Controllers
             _bookingService = bookingService;
         }
 
-        [HttpPut("{id}")]
+        [HttpGet("AcceptBooking/{id}")]
         public async Task<IActionResult> AcceptBooking(int id)
         {
            await _bookingService.AcceptBookingAsync(id);

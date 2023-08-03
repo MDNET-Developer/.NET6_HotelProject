@@ -20,7 +20,7 @@ namespace MyHotelProject.DataAccessLayer.EntityFramework
         public async Task AcceptBookingAsync(int id)
         {
             var data = await _dbSet.FindAsync(id);
-            data.Status = "Təstiqləndi";
+            data.Status = "Təsdiqləndi";
             _context.SaveChangesAsync();
         }
     }

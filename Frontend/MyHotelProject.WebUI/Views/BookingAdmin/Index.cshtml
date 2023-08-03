@@ -24,6 +24,7 @@
                     <th>Yetkin sayı</th>
                     <th>Uşaq sayı sayı</th>
                     <th>Status</th>
+                    <th>Təstiqlə</th>
                     <th>Detallar</th>
                 </tr>
             </thead>
@@ -56,6 +57,16 @@
                         <td>
                             <a onclick="return confirm('Ləğv etmək istəyirsiz ?')" href="/Staff/DeleteStaff/@item.BookingId" class="btn mb-1 btn-rounded btn-outline-danger">Ləğv et</a>
                         </td>*@
+                        <td>
+                        @if (item.Status.Equals("Təsdiqləndi"))
+                        {
+                        }
+                        else
+                        {
+                         <a href="/BookingAdmin/ApprovedBooking/@item.BookingId" class="btn mb-1 btn-rounded btn-outline-success">Təstiqlə</a>
+                        }
+                        </td>
+
                         <td>
                             <a href="/BookingAdmin/DetailsBooking/@item.BookingId" class="btn mb-1 btn-rounded btn-outline-dark">Detallar</a>
                         </td>
