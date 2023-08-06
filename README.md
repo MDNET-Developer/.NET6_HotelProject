@@ -25,6 +25,7 @@
                 <li>Frontend Api Consume</li>
                 <li>N Tier Architectura</li>
                 <li>ASP.NET Identity User System</li> 
+                <li>Fluent Validation</li> 
                 <li>Rapid Api</li>
             </ul>
         </section>
