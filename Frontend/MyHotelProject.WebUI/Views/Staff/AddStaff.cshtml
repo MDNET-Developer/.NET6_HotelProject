@@ -21,7 +21,14 @@
             box-shadow: 0 0 5px #fff, 0 0 20px #7571f9;
         }
 </style>
+<script src="~/jquery/jquery.min.js"></script>
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
 <form method="post">
+        <div style="color:red" asp-validation-summary="All">
+        </div>
+    
     <div>
         <h5 for="fullName">Tam adı:</h5>
         <input type="text" asp-for="FullName" class="rounded-input" />

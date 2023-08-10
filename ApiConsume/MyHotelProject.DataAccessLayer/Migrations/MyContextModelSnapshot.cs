@@ -303,6 +303,52 @@ namespace MyHotelProject.DataAccessLayer.Migrations
                     b.ToTable("Bookings");
                 });
 
+            modelBuilder.Entity("MyHotelProject.EntityLayer.Concrete.Contact", b =>
+                {
+                    b.Property<int>("ContactId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ContactId"), 1L, 1);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Mail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MessageCategoryID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ContactId");
+
+                    b.HasIndex("MessageCategoryID");
+
+                    b.ToTable("Contacts");
+                });
+
+            modelBuilder.Entity("MyHotelProject.EntityLayer.Concrete.MessageCategory", b =>
+                {
+                    b.Property<int>("MessageCategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MessageCategoryId"), 1L, 1);
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MessageCategoryId");
+
+                    b.ToTable("MessageCategories");
+                });
+
             modelBuilder.Entity("MyHotelProject.EntityLayer.Concrete.Room", b =>
                 {
                     b.Property<int>("RoomId")
@@ -483,6 +529,22 @@ namespace MyHotelProject.DataAccessLayer.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MyHotelProject.EntityLayer.Concrete.Contact", b =>
+                {
+                    b.HasOne("MyHotelProject.EntityLayer.Concrete.MessageCategory", "MessageCategory")
+                        .WithMany("Contacts")
+                        .HasForeignKey("MessageCategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MessageCategory");
+                });
+
+            modelBuilder.Entity("MyHotelProject.EntityLayer.Concrete.MessageCategory", b =>
+                {
+                    b.Navigation("Contacts");
                 });
 #pragma warning restore 612, 618
         }

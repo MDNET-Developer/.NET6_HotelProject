@@ -1,11 +1,21 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using MyHotelProject.DataAccessLayer.Concrete;
 using MyHotelProject.EntityLayer.Concrete;
+using MyHotelProject.WebUI.Models;
+using MyHotelProject.WebUI.ValidationRules.StaffValidationRules;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IValidator<AddStaffViewModel>,StaffValidator>();
+builder.Services.AddControllersWithViews().AddFluentValidation(x =>
+{
+    x.AutomaticValidationEnabled = true;
+});
+
 //Bunu tanitmaq lazimdir ki,api uzre gelen istekler islesin
 builder.Services.AddHttpClient();
 builder.Services.AddDbContext<MyContext>();
